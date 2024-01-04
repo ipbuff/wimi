@@ -3,7 +3,7 @@ version: '3.9'
 services:
   wimi:
     container_name:           wimi
-    image:                    nginxinc/nginx-unprivileged:stable-alpine3.18-slim
+    build:                    .
     restart:                  unless-stopped
     logging:
       options:
@@ -11,6 +11,3 @@ services:
         max-file:             "3"
     ports:
       - 8080:8080
-    volumes:
-      - ./default.conf:/etc/nginx/conf.d/default.conf
-
